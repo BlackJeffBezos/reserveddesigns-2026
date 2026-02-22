@@ -1,0 +1,499 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+---
+
+<MainLayout 
+  title="Product Development Design Studio - Turn Ideas into Reality"
+  description="We specialize in turning ideas into market-ready everyday products that people love, backed by top-tier expertise. Say hi, let's test your idea."
+>
+  <!-- Hero Section with Motion -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-primary-pink-soft to-primary-blue-soft">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-primary-pink-translucent rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-blue-translucent rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-cyan/20 rounded-full blur-3xl animate-pulse"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div class="animate-fade-in">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
+          <span class="block animate-slide-up">TURN YOUR IDEAS INTO</span>
+          <span class="block gradient-text animate-slide-up" style="animation-delay: 0.2s;">LOVED PRODUCTS</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+          We specialize in turning ideas into market-ready toys, gadgets, and everyday products that people love, backed by our top-tier expertise.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.6s;">
+          <a href="/contact" class="btn-primary text-lg px-8 py-4">
+            Say Hi, Let's start Your Project
+          </a>
+          <a href="/portfolio" class="btn-secondary text-lg px-8 py-4">
+            Explore Our Amazing Work
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-primary-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Hero Strip Section – Typing Animation -->
+<section class="relative py-24 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Main headline -->
+    <h2 class="
+      text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl
+      font-black tracking-tight leading-none
+      text-gray-900 mb-6 md:mb-10
+    ">
+      WE DESIGN
+    </h2>
+
+    <!-- Animated typing strip -->
+    <div class="relative h-32 md:h-40 lg:h-48 flex items-center justify-center">
+      <div id="typing-strip" class="
+        text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl
+        font-extrabold tracking-tight
+        bg-gradient-to-r from-pink-500 via-pink-600 to-blue-600
+        bg-clip-text text-transparent
+        inline-block
+      ">
+        <!-- Words will be inserted here via JS -->
+      </div>
+
+      <!-- Blinking cursor -->
+      <span id="cursor" class="
+        inline-block w-4 h-2 md:w-6 md:h-3 lg:w-8 lg:h-4
+        bg-pink-600 ml-2 animate-blink
+      "></span>
+    </div>
+
+    <!-- Optional subtle tagline -->
+    <p class="mt-8 md:mt-12 text-xl md:text-2xl lg:text-3xl text-gray-600 font-medium max-w-4xl mx-auto">
+      Turning wild ideas into things people love, use, and talk about.
+    </p>
+  </div>
+
+  <!-- Decorative floating blobs (optional visual flair) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-64 h-64 md:w-96 md:h-96 bg-pink-500/10 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute -bottom-20 -right-20 w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl animate-float-slower"></div>
+  </div>
+</section>
+
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(40px, -40px); }
+  }
+  @keyframes float-slower {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-50px, 60px); }
+  }
+  .animate-float-slow {
+    animation: float-slow 18s ease-in-out infinite;
+  }
+  .animate-float-slower {
+    animation: float-slower 24s ease-in-out infinite;
+  }
+</style>
+
+<script>
+  const words = [
+    "FUN TOYS",
+    "AWESOME GADGETS",
+    "UNFORGETTABLE BRANDS",
+    "EXCELLENT WEBSITES",
+    "CRAZY IDEAS"
+  ];
+
+  const strip = document.getElementById('typing-strip');
+  const cursor = document.getElementById('cursor');
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentWord = words[wordIndex];
+
+    if (isDeleting) {
+      // Delete characters
+      strip.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      // Type characters
+      strip.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    // Speed control
+    let speed = isDeleting ? 60 : 100;
+
+    // When word is fully typed → pause then delete
+    if (!isDeleting && charIndex === currentWord.length) {
+      speed = 1500; // pause at end
+      isDeleting = true;
+    }
+
+    // When word is fully deleted → move to next word
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      speed = 400; // small delay before typing next
+    }
+
+    setTimeout(type, speed);
+  }
+
+  // Start animation after page load
+  document.addEventListener('DOMContentLoaded', () => {
+    type();
+  });
+</script>
+
+
+  <!-- Featured Portfolio -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-16 animate-on-scroll">
+    <h2 class="section-title">
+      OUR <span class="gradient-text">AMAZING WORK</span>
+    </h2>
+    <p class="text-xl text-gray-600">
+      Real examples of turning concepts into products people love and use daily.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+    <!-- Card 1 -->
+
+          <PortfolioCard
+        href="https://ckda.netlify.app/"
+        imageSrc="/images/ck-dyongo-and-associates-new-logo-designed-by-reserved-designs.svg"
+        imageAlt="CK Dyongo & Associates websites and logo Design"
+        category="Full Branding"
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="CK Dyongo & Associates"
+        description="Website, Logo design and strategic Branding for a legal consultant in JHB."
+        partnerLabel="Website, Logo, Branding"
+        partnerName="Churchill Khanyiso Dyongo"
+        animationDelay="0s"
+        data-tags="Website Design & Development, Logo Design, Branding"
+      />
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://lsbakery.netlify.app/"
+        imageSrc="/images/ls-bakery-logo-designed-by-reserved-designs.svg"
+        imageAlt="LS Bakery Website and Logo Design"
+        category="Branding"
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="LS Bakery"
+        description="Website & Logo Design for a local bakery."
+        partnerLabel="Website, Logo design"
+        partnerName="Lucky"
+        animationDelay="0.1s"
+        data-tags="Website development, logo design, branding"
+      />
+
+      
+  </div>
+
+   <div class="text-center mt-12 animate-on-scroll">
+      <a href="/portfolio" class="btn-primary text-lg px-8 py-4">
+        View Full Portfolio
+      </a>
+    </div> 
+</section>   
+
+
+<!-- Voices of Success / Testimonials Section -->
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left: Text content -->
+      <div class="space-y-8 lg:sticky lg:top-24">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight uppercase">
+          VOICES OF<br />
+          <span class="text-primary-pink">SUCCESS</span>
+        </h2>
+        
+        <p class="text-lg md:text-xl text-gray-700 max-w-xl">
+          We don't just build products; we build relationships.<br />
+          See what our partners have to say about the Reserved experience.
+        </p>
+
+        <a 
+          href="/services" 
+          class="inline-flex items-center gap-2 text-primary-blue font-bold text-lg hover:text-primary-pink transition-colors group"
+        >
+          EXPLORE OUR SERVICES
+          <span class="text-xl group-hover:translate-x-1 transition-transform">›</span>
+        </a>
+      </div>
+
+      <!-- Right: Testimonials grid / stack -->
+      <div class="space-y-8">
+        <!-- Testimonial 1 -->
+        <div class="relative bg-white rounded-2xl border-2 border-blue-500/40 overflow-hidden shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-5">
+              <div class="flex-shrink-0">
+                <img 
+                  src="/images/ckda-favicon.png" 
+                  alt="ck dyongo and associates legal consultant in jhb" 
+                  class="w-14 h-14 rounded-full object-cover border-2 border-blue-200"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h4 class="font-bold text-lg">CK Dyongo</h4>
+                    <p class="text-sm text-gray-600">Legal Consultant | Website design | Logo design | Branding</p>
+                  </div>
+                  <div class="flex text-yellow-400">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <blockquote class="text-gray-700 italic leading-relaxed">
+             "They delivered beyond my expectations, very professional and fast."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="relative bg-white rounded-2xl border-2 border-pink-500/40 overflow-hidden shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-5">
+              <div class="flex-shrink-0">
+                <img 
+                  src="/images/safari-canvas-logo-designed-by-reserved-designs.avif" 
+                  alt="safari-canvas-logo-designed-by-reserved-designs" 
+                  class="w-14 h-14 rounded-full object-cover border-2 border-pink-200"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h4 class="font-bold text-lg">Safari Canvas</h4>
+                    <p class="text-sm text-gray-600">Safari Canvas | T-shirt design | Graphic Design</p>
+                  </div>
+                  <div class="flex text-yellow-400">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <blockquote class="text-gray-700 italic leading-relaxed">
+              "Excellent designs, responsive team and smooth process."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="relative bg-white rounded-2xl border-2 border-blue-500/40 overflow-hidden shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-5">
+              <div class="flex-shrink-0">
+                <img 
+                  src="/images/reserved-designs-cad-and-product-render.avif" 
+                  alt="reserved-designs-cad-and-product-render." 
+                  class="w-14 h-14 rounded-full object-cover border-2 border-blue-200"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h4 class="font-bold text-lg">W. Yekane</h4>
+                    <p class="text-sm text-gray-600">Entrepreneur | CAD | Product Render</p>
+                  </div>
+                  <div class="flex text-yellow-400">
+                    ★★★★★
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <blockquote class="text-gray-700 italic leading-relaxed">
+              "Amazing precision CAD design and quality Product Render, highly recommended."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Product Development Design Section – Emotional & Evidence-Based CTA -->
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left: Emotional Visual (abstract, flowing, human-centered product design vibe) -->
+      <div class="relative aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <img
+          src="/images/reserveddesigns-studio-start-your-project-with-us.avif"
+          alt="Reserved Designs Studio - Start Your Project With Us"
+          class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Right: Emotional, Evidence-Driven Text Content -->
+      <div class="space-y-8 lg:space-y-10">
+        <div class="space-y-6">
+          <h2 class="text-4xl text-primary-pink uppercase tracking-wider font-medium text-sm md:text-base">
+            We shape tomorrow
+        </h2>
+
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            Product Development<br />
+            isn’t just building things;<br />
+            it’s <span class="text-primary-pink">breathing life</span> into dreams.
+          </h2>
+
+          <div class="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+            <p>
+              Every curve, every material choice, every function we craft carries emotion. We believe great products don’t just solve problems — they <strong>move people</strong>, spark joy, build trust, and become part of someone’s story.
+            </p>
+
+            <p>
+              While others chase trends or rush to production, we slow down. We ask: <strong>How does this feel in the hand? How does it make someone feel seen?</strong> We blend rigorous engineering with human-centered intuition
+            </p>
+
+
+            <p class="font-medium italic text-gray-800">
+              — Because when a product resonates, it doesn’t just get used, it gets loved.
+              <br>
+<div class="relative inline-block">
+  <span class="
+    text-6xl md:text-8xl lg:text-9xl
+    font-black text-gray-950 tracking-tighter
+    after:content-[''] after:absolute after:-bottom-3 after:left-0 after:w-full after:h-1 after:bg-gradient-to-r after:from-pink-500 after:to-blue-500
+  ">
+    Ndinga Dior'ngo
+  </span>
+  <p class="text-3xl md:text-4xl font-bold text-gray-700 mt-4">
+    founder of <span class="text-indigo-700">Reserved Designs</span>
+  </p>
+</div>
+            </p>
+          </div>
+        </div>
+
+        <!-- Emotional CTA Button -->
+        <div class="pt-6">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-3 bg-primary-pink hover:bg-primary-pink/90 text-white font-bold px-8 py-5 rounded-full text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            Let’s Bring Your Vision to Life
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Logbook / Insights & Manifestos Section -->
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
+      <div>
+        <p class="text-primary-pink uppercase tracking-wider font-medium text-sm md:text-base mb-2">
+          LOGBOOK
+        </p>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          INSIGHTS<span class="text-primary-blue">&</span><br />
+          <span class="text-primary-blue">MANIFESTOS</span>
+        </h2>
+      </div>
+
+      <a 
+        href="/blogs" 
+        class="inline-flex items-center gap-2 text-primary-blue font-bold hover:text-primary-pink transition-colors group text-lg"
+      >
+        VIEW ALL BLOGS
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      
+<BlogCard
+    href="/blog/how-to-turn-your-ideas-into-real-money-blog.html"
+    imageSrc="/images/how-to-turn-your-idea-into-cash-blog.avif"
+    imageAlt="Hands holding stack of dollar bills"
+    category="Entrepreneurship"
+    readTime="3 min read"
+    title="HOW TO TURN YOUR IDEA INTO REAL MONEY IN 2026 (WITHOUT LOSING EVERYTHING)"
+    excerpt="The exact roadmap thousands of everyday people are using right now to license ideas and launch million-dollar businesses."
+  />
+
+  <!-- Second card – completely different content -->
+  <BlogCard
+    href="/blog/sustainable-product-design-2026"
+    imageSrc="/images/designing-products-that-don't-destroy-earth-blog.avif"
+    category="Sustainability"
+    readTime="2 min read"
+    title="BUILDING PRODUCTS THAT DON'T DESTROY THE PLANET"
+    excerpt="How we use circular design principles, biodegradable materials and lifecycle thinking to create responsible innovation."
+  />
+
+  <!-- Third card example -->
+  <BlogCard
+    href="/blog/the-power-of-branding-blog.html"
+    imageSrc="/images/the-power-of-branding-blog.avif"
+    category="Branding"
+    readTime="4 min read"
+    title="THE POWER OF BRANDING: WHY YOU CAN'T AFFORD TO LOOK AVERAGE"
+    excerpt="Discover why two identical businesses can have completely different results—just because of branding."
+  />
+
+
+    </div>
+  </div>
+</section>  
+
+
+</MainLayout>

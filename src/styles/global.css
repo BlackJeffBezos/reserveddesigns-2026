@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  --color-pink: #E91E8C;
+  --color-blue: #4169E1;
+  --color-pink-translucent: rgba(233, 30, 140, 0.8);
+  --color-blue-translucent: rgba(65, 105, 225, 0.8);
+  --color-pink-soft: rgba(233, 30, 140, 0.1);
+  --color-blue-soft: rgba(65, 105, 225, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply bg-primary-blue text-white hover:shadow-xl hover:scale-105;
+    @apply border-2 border-primary-blue;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply bg-transparent text-primary-pink border-2 border-primary-pink;
+    @apply hover:bg-primary-pink hover:text-white hover:shadow-xl;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold font-display;
+    @apply mb-6 leading-tight;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-pink to-primary-blue bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply p-6 rounded-2xl transition-all duration-300;
+    @apply border-2 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .card-pink {
+    @apply card border-primary-pink bg-primary-pink-soft;
+    @apply hover:bg-primary-pink-translucent hover:text-white;
+  }
+
+  .card-blue {
+    @apply card border-primary-blue bg-primary-blue-soft;
+    @apply hover:bg-primary-blue-translucent hover:text-white;
+  }
+
+  .goal-icon {
+  @apply w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32;
+}
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+}

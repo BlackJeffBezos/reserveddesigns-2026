@@ -1,0 +1,255 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+---
+
+<MainLayout title="Portfolio - Ideas Transformed into Loved Products" 
+  description="See our work: real examples of turning concepts into functional websites, brands, physical items, and public art that people love and use daily.">
+
+  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12 md:mb-16">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+          OUR <span class="text-pink-600">AMAZING WORK</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-600">
+          Explore real projects we’ve brought to life.
+        </p>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+        <!-- Your Portfolio Cards – IMPORTANT: each must have data-tags and correct structure -->
+        <PortfolioCard
+          href="https://ckda.netlify.app/"
+          imageSrc="/images/ck-dyongo-and-associates-new-logo-designed-by-reserved-designs.svg"
+          imageAlt="CK Dyongo & Associates websites and logo Design"
+          category="Full Branding"
+          categoryColor="blue-600"
+          borderColor="blue-500/30"
+          title="CK Dyongo & Associates"
+          description="Website, Logo design and strategic Branding for a legal consultant in JHB."
+          partnerLabel="Website, Logo, Branding"
+          partnerName="Churchill Khanyiso Dyongo"
+          data-tags="web-design,branding,logo-design"
+        />
+
+        <PortfolioCard
+          href="https://lsbakery.netlify.app/"
+          imageSrc="/images/ls-bakery-logo-designed-by-reserved-designs.svg"
+          imageAlt="LS Bakery Website and Logo Design"
+          category="Branding"
+          categoryColor="pink-600"
+          borderColor="pink-500/30"
+          title="LS Bakery"
+          description="Website & Logo Design for a local bakery."
+          partnerLabel="Website, Logo design"
+          partnerName="Lucky"
+          data-tags="web-design, branding,logo-design"
+        />   
+
+        <PortfolioCard
+          href="https://actutorials.netlify.app/#home"
+          imageSrc="/images/achievers-academy-logo-revamp-by-reserved-designs.svg"
+          imageAlt="Achievers Academy website and logo Design"
+          category="Website design"
+          categoryColor="blue-600"
+          borderColor="blue-500/30"
+          title="Achievers Academy"
+          description="Website & Logo revamp for a extra class academy in Benoni North Mead."
+          partnerLabel="Website, Logo revamp."
+          partnerName="Kabelo Tladi"
+          data-tags="web-design,branding,logo-design"
+        />
+
+
+          <PortfolioCard
+        href="https://thephunokheja-hardware.netlify.app/"
+        imageSrc="/images/thephunokheja-logo-design-by-reserved-designs.svg"
+        imageAlt="Thephunokheja website and logo design."
+        category="Branding"
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="Thephunokheja Steel suppliers"
+        description="Website & Logo design for a local hardware, alumuniun and stainless steel supplier"
+        partnerLabel="Website, Logo"
+        partnerName="Shadrack" 
+        animationDelay="0s"
+        data-tags="Website Design & Development, Logo Design, Branding, web design."
+      />
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourotherlinkhere/view"
+        imageSrc="/images/electro-fix-logo-designed-by-reserved-designs.avif"
+        imageAlt="Website, Logo design for electronics repair shop in central Brakpan."
+        category="Branding"
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="ElectroFix"
+        description="Website & Logo design for electronics repair shop in central Brakpan."
+        partnerLabel="Website, Logo"
+        partnerName="ElectroFix"
+        animationDelay="0.1s"
+        data-tags="Website Design & Development, Branding, Logo Design, web design."
+      />
+
+          <PortfolioCard
+        href="https://www.reserveddesigns.co.za"
+        imageSrc="/images/reserved-designs-logo.avif"
+        imageAlt="Design studio full branding"
+        category="Full Branding"
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="Reserved Designs"
+        description="Website, logo & strategic branding for a Design studio in JHB South Africa."
+        partnerLabel="Full Branding"
+        partnerName="Ndinga"
+        animationDelay="0s"
+        data-tags="Full Branding, web design, website design & development, strategic branding, Logo, logo design."
+      />
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourotherlinkhere/view"
+        imageSrc="/images/reserved-designs-mspt-logo-design.avif"
+        imageAlt="MSPT Branding."
+        category="Branding"
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="MSPT Sport & Tourism."
+        description="Logo & letter design for a Sport & Tourism promotion company in Durban."
+        partnerLabel="logo design, letter design"
+        partnerName="Welcome Mteto"
+        animationDelay="0.1s"
+        data-tags="Branding, Logo, logo design, letter design, letterhead, letter,"
+      />
+
+
+    <!-- Card 1 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourlinkhere/view"
+        imageSrc="/images/reserved-designs-nogqaza-logo-design.avif"
+        imageAlt="Xhosa fast reflex game named NOGQAZA."
+        category="Game Design & Development"
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="Nogqaza"
+        description="A Digitized & Modernize fast reflex Xhosa game."
+        partnerLabel="product-development, game design, game development."
+        partnerName="Reserved Designs Studio."
+        animationDelay="0s"
+        data-tags="product-development, game, game design, modernizing, game development."
+      />
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourotherlinkhere/view"
+        imageSrc="/images/safari-canvas-logo-designed-by-reserved-designs.avif"
+        imageAlt="South African inspired apparel maker."
+        category="Graphic Design"
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="Safari Canvas"
+        description="South African inspired apparel maker."
+        partnerLabel="Logo design & T-Shirt design"
+        partnerName="Reserved Designs Studio."
+        animationDelay="0.1s"
+        data-tags="T-Shirt design, graphic design, logo, logo design."
+      />
+
+
+    <!-- Card 1 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourlinkhere/view"
+        imageSrc="/images/reserved-designs-haibo-apparel-t-shit-design-graphic-design.avif"
+        imageAlt="T-Shirt design for South African apparel maker."
+        category="T-Shirt Design."
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="Haibo Apparel"
+        description="A South African inspired apparel."
+        partnerLabel="Logo design & T-Shirt design"
+        partnerName="Safari Canvas."
+        animationDelay="0s"
+        data-tags="product-development, innovation, 3d-printing, hidden-tag1, hidden-tag2, 8"
+      />
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourotherlinkhere/view"
+        imageSrc="/images/reserved-designs-springboks-iv-victory-graphic-design.avif"
+        imageAlt="T-shirt design inspired by South African Rugby team."
+        category="T-shirt Design."
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="Springboks IV Victory."
+        description="A T-Shirt design inspired by the Springboks 4 Years Trailblazer victory."
+        partnerLabel="Logo design & T-Shirt design"
+        partnerName="Safari Canvas"
+        animationDelay="0.1s"
+        data-tags="T-Shirt, graphic-design, T-Shirt design"
+      />
+
+
+    <!-- 
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourlinkhere/view"
+        imageSrc="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+        imageAlt="Pepper spray product from Proguard."
+        category="Product Design"
+        categoryColor="blue-600"
+        borderColor="blue-500/30"
+        title="Logo Design"
+        description="A company devoted to provide wide range of Pepper Spray products to the world to fight against crime."
+        partnerLabel="ProGuard"
+        partnerName="ProGuard"
+        animationDelay="0s"
+        data-tags="product-development, innovation, 3d-printing, Product design, Full Branding."
+      />
+
+      -->
+
+      <!-- Example Card 2 -->
+      <PortfolioCard
+        href="https://www.canva.com/design/DAFyourotherlinkhere/view"
+        imageSrc="/images/reserved-designs-superior-bricks-logo-design.avif"
+        imageAlt="Construction company logo."
+        category="Logo Design"
+        categoryColor="pink-600"
+        borderColor="pink-500/30"
+        title="Superior Bricks"
+        description="A construction & and Brick supplier company in Mogwase North West."
+        partnerLabel="Logo Design"
+        partnerName="Superior Bricks"
+        animationDelay="0.1s"
+        data-tags="Logo, logo design, branding"
+      />
+  </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA (your existing one) -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl font-bold uppercase mb-8 leading-tight">
+        Now let's see how your Idea <br />
+        <span class="text-primary-pink">Could Become</span>?
+      </h2>
+      <p class="text-xl md:text-2xl opacity-90 mb-12 max-w-3xl mx-auto">
+        SO SAD YOU'VE REACHED THE END OF OUR AMAZING WORK.<br />
+        BUT WE CAN ADD YOURS, LET'S TALK ABOUT YOUR IDEA NOW.
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-block bg-primary-pink hover:bg-pink-600 text-white font-bold uppercase px-12 py-6 rounded-xl text-xl shadow-2xl hover:shadow-3xl transition-all duration-300"
+      >
+        LET'S START YOUR PROJECT
+      </a>
+    </div>
+  </section>
+
+</MainLayout>
